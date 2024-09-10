@@ -2,7 +2,9 @@
 
 string inputString = "29535123p48723487597645723645";
 
-
+static long CalcSubStringValue(string inputedString)
+{
+string inputString = inputedString;
 char tempChar = '\0';
 int startIndex = 0;
 int stopIndex = 0;
@@ -11,6 +13,8 @@ string ValueSubString = string.Empty;
 string lastSubstring = string.Empty;
 long totalSum = 0;
 bool stringFound = true;
+
+
 
 for (int i = 0; i < inputString.Length; i++)
 {
@@ -55,31 +59,13 @@ for (int i = 0; i < inputString.Length; i++)
         Console.WriteLine();
     }
 }
+    Console.WriteLine();
+    return totalSum;
+} //Här slutar funktionen
 
-Console.WriteLine();
+long totalSubStringValue = 0;
 
-Console.WriteLine($"Total summan är: {totalSum}");
-long checkValue = 5836428677242;
-if (totalSum == checkValue)
-{
-    Console.WriteLine("Dom är samma");
-}
+Console.Write($"Skriv in valfri sträng: ");
+totalSubStringValue = CalcSubStringValue(Console.ReadLine());
 
-
-
-//Console.WriteLine($"Start index är: {startIndex}");
-//Console.WriteLine($"tempchar är: {tempChar}");
-//Console.WriteLine($"stopIndex är; {stopIndex}");
-//Console.WriteLine($"operation är; {stopIndex - startIndex + 1}");
-
-
-//Console.WriteLine($"correctsubstring är:   {totalSum}");
-
-
-
-
-
-
-
-
-
+Console.WriteLine($"Den totala summan av delsträngarna är: {totalSubStringValue}");
