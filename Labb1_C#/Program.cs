@@ -21,11 +21,11 @@ string firstSubString = string.Empty;
 string ValueSubString = string.Empty;
 string lastSubString = string.Empty;
 long totalSum = 0;
-bool IsStringFound = true;
+bool isStringFound = true;
 
 for (int i = 0; i < inputString.Length; i++)
 {
-    IsStringFound = false;
+    isStringFound = false;
     
     for (int j = i; j < inputString.Length; j++)
     {
@@ -47,13 +47,13 @@ for (int i = 0; i < inputString.Length; i++)
             ValueSubString = inputString.Substring(startIndex, (stopIndex - startIndex + 1));
             lastSubString = inputString.Substring(j + 1);
             totalSum += long.Parse(ValueSubString);
-            IsStringFound = true;
+            isStringFound = true;
             
             break;
         }
     }
     
-    if (IsStringFound)
+    if (isStringFound)
     {
         Console.Write(firstSubString);
         Console.ForegroundColor = ConsoleColor.Red;
