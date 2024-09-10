@@ -1,10 +1,20 @@
 ﻿
 
-string inputString = "29535123p48723487597645723645";
+
 
 static long CalcSubStringValue(string inputedString)
+
 {
+
 string inputString = inputedString;
+
+    if (inputString == string.Empty)
+    {
+        Console.Write("Du skrev inte in nån sträng (standard sträng kommer användas");
+        inputString = "29535123p48723487597645723645";
+        Console.WriteLine();
+    }
+
 char tempChar = '\0';
 int startIndex = 0;
 int stopIndex = 0;
@@ -14,19 +24,14 @@ string lastSubstring = string.Empty;
 long totalSum = 0;
 bool stringFound = true;
 
-
-
 for (int i = 0; i < inputString.Length; i++)
 {
-
     stringFound = false;
-
-
+    
     for (int j = i; j < inputString.Length; j++)
     {
         if (!char.IsDigit(inputString[j]))
         {
-
             break;
         }
 
@@ -34,9 +39,8 @@ for (int i = 0; i < inputString.Length; i++)
         {
             tempChar = inputString[j];
             startIndex = j;
-
         }
-
+        
         if (j > i && tempChar == inputString[j])
         {
             stopIndex = j;
@@ -45,10 +49,11 @@ for (int i = 0; i < inputString.Length; i++)
             lastSubstring = inputString.Substring(j + 1);
             totalSum += long.Parse(ValueSubString);
             stringFound = true;
-
+            
             break;
         }
     }
+    
     if (stringFound)
     {
         Console.Write(firstSubstring);
@@ -61,8 +66,7 @@ for (int i = 0; i < inputString.Length; i++)
 }
     Console.WriteLine();
     return totalSum;
-} //Här slutar funktionen
-
+} 
 long totalSubStringValue = 0;
 
 Console.Write($"Skriv in valfri sträng: ");
