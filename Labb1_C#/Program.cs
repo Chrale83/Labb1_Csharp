@@ -3,14 +3,13 @@
 
 
 static long CalcSubStringValue(string inputedString)
-
 {
-
-string inputString = inputedString;
+    Console.WriteLine();
+    string inputString = inputedString;
 
     if (inputString == string.Empty)
     {
-        Console.Write("Du skrev inte in nån sträng (standard sträng kommer användas");
+        Console.WriteLine("Du skrev inte in nån sträng (standard sträng kommer användas");
         inputString = "29535123p48723487597645723645";
         Console.WriteLine();
     }
@@ -18,15 +17,15 @@ string inputString = inputedString;
 char tempChar = '\0';
 int startIndex = 0;
 int stopIndex = 0;
-string firstSubstring = string.Empty;
+string firstSubString = string.Empty;
 string ValueSubString = string.Empty;
-string lastSubstring = string.Empty;
+string lastSubString = string.Empty;
 long totalSum = 0;
-bool stringFound = true;
+bool IsStringFound = true;
 
 for (int i = 0; i < inputString.Length; i++)
 {
-    stringFound = false;
+    IsStringFound = false;
     
     for (int j = i; j < inputString.Length; j++)
     {
@@ -44,23 +43,23 @@ for (int i = 0; i < inputString.Length; i++)
         if (j > i && tempChar == inputString[j])
         {
             stopIndex = j;
-            firstSubstring = inputString.Substring(0, startIndex);
+            firstSubString = inputString.Substring(0, startIndex);
             ValueSubString = inputString.Substring(startIndex, (stopIndex - startIndex + 1));
-            lastSubstring = inputString.Substring(j + 1);
+            lastSubString = inputString.Substring(j + 1);
             totalSum += long.Parse(ValueSubString);
-            stringFound = true;
+            IsStringFound = true;
             
             break;
         }
     }
     
-    if (stringFound)
+    if (IsStringFound)
     {
-        Console.Write(firstSubstring);
+        Console.Write(firstSubString);
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write(ValueSubString);
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write(lastSubstring);
+        Console.Write(lastSubString);
         Console.WriteLine();
     }
 }
@@ -73,3 +72,4 @@ Console.Write($"Skriv in valfri sträng: ");
 totalSubStringValue = CalcSubStringValue(Console.ReadLine());
 
 Console.WriteLine($"Den totala summan av delsträngarna är: {totalSubStringValue}");
+
