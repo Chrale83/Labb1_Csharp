@@ -1,8 +1,6 @@
 ﻿
-
-string inputString = "29535123p48723487597645723645";
-
-
+static long CalcStringValue(string inputString)
+{
 char tempChar = '\0';
 int startIndex = 0;
 int stopIndex = 0;
@@ -22,17 +20,15 @@ for (int j = i; j < inputString.Length; j++)
 {
     if (!char.IsDigit(inputString[j]))
     {
-           
         break;
     }
-
+           
     if (j == i)
     {
         tempChar = inputString[j];
         startIndex = j;
-        
     }
-
+        
     if (j > i && tempChar == inputString[j]) 
     {
         stopIndex = j;
@@ -42,9 +38,9 @@ for (int j = i; j < inputString.Length; j++)
         totalSum += long.Parse(ValueSubString);
         stringFound = true;
 
-         break;
+        break;
     }
-}
+
     if (stringFound)
     {
     Console.Write(firstSubstring);
@@ -55,31 +51,27 @@ for (int j = i; j < inputString.Length; j++)
     Console.WriteLine();
     }
 }
+}
+    Console.WriteLine();
+    return totalSum;
+}
+long totalSumOfString = 0;
 
+Console.Write("Skriv in din sträng: ");
+string inPutedString = Console.ReadLine();
 Console.WriteLine();
 
-Console.WriteLine($"Total summan är: {totalSum}");
-long checkValue = 5836428677242;
-if (totalSum == checkValue)
+
+
+totalSumOfString = CalcStringValue(inPutedString);
+
+
+if (totalSumOfString == 0)
 {
-    Console.WriteLine("Dom är samma");
+    Console.WriteLine($"Det fanns ingen sammanhängande sträng");
 }
-
-
-
-//Console.WriteLine($"Start index är: {startIndex}");
-//Console.WriteLine($"tempchar är: {tempChar}");
-//Console.WriteLine($"stopIndex är; {stopIndex}");
-//Console.WriteLine($"operation är; {stopIndex - startIndex + 1}");
-
-
-//Console.WriteLine($"correctsubstring är:   {totalSum}");
-
-
-
-
-
-
-
-
+else
+{
+    Console.WriteLine($"Total summan är: {totalSumOfString}");
+}
 
