@@ -1,8 +1,4 @@
-﻿
-
-
-
-static long CalcSubStringValue(string inputedString)
+﻿static long CalcSubStringValue(string inputedString)
 {
     Console.WriteLine();
     string inputString = inputedString;
@@ -72,4 +68,3 @@ Console.Write($"Skriv in valfri sträng: ");
 totalSubStringValue = CalcSubStringValue(Console.ReadLine());
 
 Console.WriteLine($"Den totala summan av delsträngarna är: {totalSubStringValue}");
-
